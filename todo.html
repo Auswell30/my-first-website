@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>To-Do List - Auswell</title>
+<style>
+body{font-family:Arial;text-align:center;padding:20px;background:#f4f4f4}
+.box{background:white;width:320px;margin:auto;padding:20px;border-radius:15px;box-shadow:0 0 10px #ccc}
+input{padding:10px;width:70%;font-size:16px}
+button{padding:10px 15px;background:#e63946;color:white;border:none;border-radius:8px;cursor:pointer}
+ul{list-style:none;padding:0;text-align:left}
+li{background:#eee;padding:10px;margin:5px 0;border-radius:8px;display:flex;justify-content:space-between}
+li span{cursor:pointer}
+</style>
+</head>
+<body>
+<h2>Auswell To-Do List</h2>
+<div class="box">
+<input type="text" id="task" placeholder="Nyora zvaunoda kuita...">
+<button onclick="addTask()">Add</button>
+<ul id="list"></ul>
+</div>
+<br><a href="index.html">← Back to Portfolio</a>
+<script>
+function addTask(){
+let input=document.getElementById('task');
+let val=input.value.trim();
+if(val==='') return;
+let li=document.createElement('li');
+li.innerHTML=val+' <span onclick="this.parentElement.remove()">❌</span>';
+document.getElementById('list').appendChild(li);
+input.value='';
+}
+</script>
+</body>
+</html>
